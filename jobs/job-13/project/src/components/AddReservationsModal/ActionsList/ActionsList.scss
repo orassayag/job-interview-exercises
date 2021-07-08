@@ -1,0 +1,25 @@
+@import '../../../assert/scss/global.scss';
+
+.modal-content {
+    .actions-list {
+        width: 100%;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        margin-top: 20px;
+
+        .button-container {
+            position: relative;
+            right: 25px;
+        }
+    }
+
+    .error {
+        width: auto;
+        max-width: 80%;
+        color: $error-color;
+        height: 30px;
+        font-size: 1em;
+        margin-left: 28px;
+    }
+}

@@ -1,0 +1,68 @@
+/*
+
+You are given a Maze in the size of NxM represented by a boolean matrix where 0 is empty, and 1 is blocked (wall).
+
+1. Code a function 'solve1', which returns true if there's a path from points 's' (start) to 'e' (end) which passes only through zeros. It should return 'false' if there is no possible path.
+
+Possible movements: up, right, down, left (no diagonals)
+
+For example, this maze should return true:
+
+s 1 1 1
+0 0 0 1
+1 1 e 1
+1 1 1 1
+
+And this one should return false:
+
+s 1 1 1
+0 1 0 1
+1 1 e 1
+1 1 1 1
+
+*/
+
+function solve1(m, s, e) {
+  return false;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*
+
+2. Code a function 'solve2' which returns a path between points 's' and 'e'. If there is not path it should return 'null'
+
+For example, this maze:
+
+s 1 1 1
+0 0 0 1
+1 1 e 1
+1 1 1 1
+
+Should return [point(0,0), point(1,0), point(1,1), point(1,2), point(2,2)]
+
+And the following maze should return 'null':
+
+s 1 1 1
+0 2 0 1
+1 1 e 1
+1 1 1 1
+
+*/
+
+
+function solve2(m, s, e) {
+  return null;
+}

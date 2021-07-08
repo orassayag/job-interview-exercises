@@ -1,0 +1,35 @@
+Please upload your results to your preferred SCM system (Github, bitbucket, etc) and provide access.
+
+FS Challenge:
+
+Your challenge is to create a BE service that handles scheduled email reports and simple FE to visualize it:
+
+	• Data:
+		• In DB you have list of Definitions for scheduled email reports. Each definition has:
+			• Recipients list
+			• Email body
+			• Recurrence (for example: every Sunday, Tuesday and Thursday at 14:00), granularity of 1 hour
+			• Timezone
+		• ℹ️ For simplicity, you can mock DB with local in-memory/file storage, yet consider data schema, performance and indexes. Also feel free to adjust the Definition object for your needs.
+	• BE:
+		• Your service should get relevant Definitions to treat at a given time
+		• For simplicity and to avoid creating a scheduler, provide only an API that gets a timeframe as parameter and as result does the following:
+			• Gets all relevant Definitions relevant to the given timeframe (default is ’now’)
+			• ‘treat' them by writes to log
+			• Mark them as ’treated’ with treatment timestamp
+		• ℹ️ Assume there are millions of Definitions scheduled to be treated at same time, and there's no limitation on size of email body
+	• FE:
+		• Create a simple FE app to:
+			• Visualize the list of definitions
+			• Generate bulk of random definitions and trigger treatment
+			• Visualize treatment (which definitions were treated, how many left, etc.)
+			• Keep best practices for React apps
+	• Bonus:
+		• TypeScript
+		• Tests
+
+We suggest to top the efforts up to 3h max.
+Please let me know when we can schedule a review meeting to go over your submission, make sure to have 24h window after your submission to the date you provide so we could evaluate it beforehand.
+If you have any questions, feel free to reach out.
+
+Good luck!

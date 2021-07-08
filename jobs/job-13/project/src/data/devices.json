@@ -1,0 +1,112 @@
+[
+    {
+        "id": "fd26f155-15b2-4681-b143-1976763f651d",
+        "model": "Apple iPad Pro 9.7",
+        "isAvailable": true,
+        "isSound": true,
+        "osVersion": "10.5.2",
+        "location": "US East",
+        "macAddress": "207.201.109.64",
+        "imei": "739399601669930480",
+        "imsi": ""
+    },
+    {
+        "id": "fd9571b4-d568-459a-9290-6411865cce38",
+        "model": "Apple iPad Pro 9.7",
+        "isAvailable": true,
+        "isSound": true,
+        "osVersion": "11.4.1",
+        "location": "US East",
+        "macAddress": "132.109.246.89",
+        "imei": "687984722177496123",
+        "imsi": ""
+    },
+    {
+        "id": "8d6bd633-95f3-4bf3-93a0-295f09ba6653",
+        "model": "Apple McBook 17 JU",
+        "isAvailable": true,
+        "isSound": true,
+        "osVersion": "1.4.6",
+        "location": "US East",
+        "macAddress": "12.75.91.229",
+        "imei": "676831481688371539",
+        "imsi": ""
+    },
+    {
+        "id": "6bd5e84e-4fab-4b00-b511-127c4be8d0a5",
+        "model": "Nokia 6",
+        "isAvailable": false,
+        "isSound": false,
+        "osVersion": "3.4.5",
+        "location": "US East",
+        "macAddress": "172.30.163.232",
+        "imei": "688821565695075694",
+        "imsi": ""
+    },
+    {
+        "id": "fefb926d-83c8-4b13-b374-ec87a0f4d622",
+        "model": "Samsung GC 6",
+        "isAvailable": false,
+        "isSound": false,
+        "osVersion": "10.4.5",
+        "location": "US East",
+        "macAddress": "160.66.43.207",
+        "imei": "851861240249588699",
+        "imsi": ""
+    },
+    {
+        "id": "c1fa670f-05ee-4e4c-af70-6222e74ee68d",
+        "model": "Xioami Note 10",
+        "isAvailable": false,
+        "isSound": false,
+        "osVersion": "13.6.7",
+        "location": "US East",
+        "macAddress": "248.238.105.28",
+        "imei": "701293455827725019",
+        "imsi": ""
+    },
+    {
+        "id": "180e69ac-78c4-459e-aebc-642d043b06eb",
+        "model": "One Plus 7",
+        "isAvailable": false,
+        "isSound": true,
+        "osVersion": "19.3.1",
+        "location": "US East",
+        "macAddress": "191.179.60.252",
+        "imei": "891724958869900591",
+        "imsi": ""
+    },
+    {
+        "id": "9bcd3133-c1fb-4f76-9ed3-64532a41e906",
+        "model": "Apple iPhone 6-Plus",
+        "isAvailable": true,
+        "isSound": true,
+        "osVersion": "24.5.1",
+        "location": "US East",
+        "macAddress": "57.68.187.155",
+        "imei": "610235426917249588",
+        "imsi": ""
+    },
+    {
+        "id": "56529298-0a3d-43be-8a33-264b4b98f332",
+        "model": "HTC One M8",
+        "isAvailable": true,
+        "isSound": true,
+        "osVersion": "2.55.1",
+        "location": "US East",
+        "macAddress": "122.150.180.98",
+        "imei": "882435053558277264",
+        "imsi": ""
+    },
+    {
+        "id": "2c2d1e85-a4f5-4a4c-8932-d81900aa6648",
+        "model": "Motorola Moto X 2014",
+        "isAvailable": true,
+        "isSound": false,
+        "osVersion": "7.8.4",
+        "location": "US East",
+        "macAddress": "248.108.82.253",
+        "imei": "777117749612978626",
+        "imsi": ""
+    }
+]

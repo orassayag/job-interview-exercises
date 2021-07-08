@@ -1,0 +1,20 @@
+[
+    {
+        "id": "6bd5e84e-4fab-4b00-b511-127c4be8d0a5",
+        "model": "Nokia 6",
+        "startDate": "2021-06-12T05:00:13.171Z",
+        "endDate": "2021-06-12T07:00:13.171Z"
+    },
+    {
+        "id": "fefb926d-83c8-4b13-b374-ec87a0f4d622",
+        "model": "Samsung GC 6",
+        "startDate": "2021-06-12T19:00:13.171Z",
+        "endDate": "2021-06-12T20:30:13.171Z"
+    },
+    {
+        "id": "180e69ac-78c4-459e-aebc-642d043b06eb",
+        "model": "One Plus 7",
+        "startDate": "2021-06-12T11:00:13.171Z",
+        "endDate": "2021-06-12T12:00:13.171Z"
+    }
+]

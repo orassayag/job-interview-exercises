@@ -1,0 +1,45 @@
+$table-header-btc: #f7931a;
+$table-header-ltc: #bebebe;
+$table-header-eth: #766ac0;
+$table-header-border: #1565c0;
+$table-border: #d9d9d9;
+$row-bg: #ffffff;
+
+.flex-table {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, 20%);
+    grid-template-rows: 100% auto;
+    border-left: solid 1px $table-border;
+
+    &.header {
+        border-top: solid 1px $table-header-border;
+        border-left: solid 1px $table-header-border;
+        color: #ffffff;
+        border-color: $table-header-border;
+
+        &.header-btc {
+            background: $table-header-btc;
+        }
+
+        &.header-ltc {
+            background: $table-header-ltc;
+        }
+
+        &.header-eth {
+            background: $table-header-eth;
+        }
+    }
+
+    &.row:nth-child(odd) .flex-row {
+        background: $row-bg;
+    }
+
+    .flex-row {
+        display: block;
+        width: 100%;
+        text-align: center;
+        padding: .2em .2em;
+        border-right: solid 1px $table-border;
+        border-bottom: solid 1px $table-border;
+    }
+}

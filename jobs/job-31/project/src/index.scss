@@ -1,0 +1,283 @@
+* {
+  box-sizing: border-box;
+  font-family: 'Red Hat Text', sans-serif;
+}
+
+body {
+  margin: 0;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+#root {
+  width: 100%;
+  min-height: 100vh;
+  height: calc(100vw + 500px);
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  background: #ffffff;
+}
+
+@media (min-width: 530px) {
+  #root {
+    height: 770px;
+  }
+}
+
+.simon-game {
+  border-radius: 50%;
+  font-family: sans-serif;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.simon-game__buttons {
+  width: 400px;
+  height: 400px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+  border-radius: 50%;
+  justify-content: space-between;
+  align-content: flex-start;
+  align-items: baseline;
+}
+
+button {
+  outline: none;
+  cursor: pointer;
+}
+
+.simon-game__button {
+  width: 30%;
+  height: 30%;
+  border: 1px solid #141318;
+  margin: 0;
+  margin-top: 5%;
+}
+
+.simon-game__button--0 {
+  border-radius: 50%;
+  background: #2dbd4e;
+}
+
+.simon-game__button--0.is-lit {
+  background: #33ff88;
+}
+
+.simon-game__button--1 {
+  border-radius: 50%;
+  background: #f83a08;
+}
+
+.simon-game__button--1.is-lit {
+  background: #ff7257;
+}
+
+.simon-game__button--2 {
+  border-radius: 50%;
+  background: #e9d72b;
+}
+
+.simon-game__button--2.is-lit {
+  background: #ffff66;
+}
+
+.simon-game__button--3 {
+  border-radius: 50%;
+  background: #2484e8;
+}
+
+.simon-game__button--3.is-lit {
+  background: #33f1ff;
+}
+
+.simon-game__button--4 {
+  border-radius: 50%;
+  background: #c83cff;
+}
+
+.simon-game__button--4.is-lit {
+  background: #e48afa;
+}
+
+.simon-game__button--5 {
+  border-radius: 50%;
+  background: #ff892c;
+}
+
+.simon-game__button--5.is-lit {
+  background: #ffc08f;
+}
+
+.simon-game__settings {
+  width: 330px;
+  height: 182px;
+  background: #1e1d1f;
+  text-align: center;
+  border-radius: 20px;
+}
+
+.simon-game__heading {
+  display: inline-block;
+  position: relative;
+  margin: 10px 0 0;
+  text-align: center;
+  font-family: 'Audiowide', sans-serif;
+  font-size: 40px;
+  font-weight: 400;
+  color: #ffffff;
+}
+
+.simon-game__settings-middle-row {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-box-align: end;
+  -ms-flex-align: end;
+  align-items: flex-end;
+}
+
+.simon-game__settings-group {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-box-pack: end;
+  -ms-flex-pack: end;
+  justify-content: flex-end;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  text-align: center;
+}
+
+.simon-game__settings-count-display {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  width: 70px;
+  height: 45px;
+  border-radius: 5px;
+  background: #380f14;
+  font-size: 24px;
+  letter-spacing: 0.1em;
+  color: #cd4e5d;
+}
+
+.simon-game__settings-label {
+  display: inline-block;
+  margin: 8px 0 12px;
+  font-size: 12px;
+  text-transform: uppercase;
+  color: #ffffff;
+}
+
+.simon-game__settings-group--start-button {
+  margin-left: 15px;
+  margin-right: 15px;
+}
+
+.simon-game__settings-button {
+  width: 30px;
+  height: 30px;
+  border: none;
+  border-radius: 50%;
+}
+
+.simon-game__settings-button--start {
+  margin-bottom: 7px;
+  background: #50bb43;
+}
+
+.simon-game__settings-strict-mode-indicator {
+  width: 10px;
+  height: 10px;
+  border: 2px solid #380f14;
+  border-radius: 50%;
+  margin-bottom: 5px;
+  background: #380f14;
+}
+
+.simon-game__settings-strict-mode-indicator.is-lit {
+  background: #cd4e5d;
+}
+
+.simon-game__settings-button--strict {
+  margin-bottom: 7px;
+  background: #f2df49;
+}
+
+.simon-game__settings-bottom-row {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+}
+
+.simon-game__settings-power-button {
+  position: relative;
+  width: 66px;
+  height: 30px;
+  border: none;
+  margin-left: 8px;
+  margin-right: 8px;
+  background: #333333;
+}
+
+.simon-game__settings-power-button:before {
+  content: '';
+  display: block;
+  width: 30px;
+  height: 24px;
+  position: absolute;
+  left: 3px;
+  top: 3px;
+  background: #0b6bcf;
+  transition: left 0.3s ease;
+}
+
+.simon-game__settings-power-button.is-on:before {
+  left: 33px;
+}
+
+.simon-game__settings-bottom-row-label {
+  font-size: 12px;
+  text-transform: uppercase;
+  color: #ffffff;
+}
+
+.simon-game__instructions {
+  margin-top: 10px;
+  text-align: center;
+}

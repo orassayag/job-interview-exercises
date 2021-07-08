@@ -1,0 +1,4 @@
+1. Collect all the questions from the interview.
+2. If there is a coding challenge - Solve it here.
+3. Add more exercises from Google with subjects that need to be improved.
+4. Good Luck!

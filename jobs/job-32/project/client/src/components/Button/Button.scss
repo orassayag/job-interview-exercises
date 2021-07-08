@@ -1,0 +1,60 @@
+$blue: #3498db;
+$white: #ffffff;
+$gray-background: #cccccc;
+$gray-border: #999999;
+$gray-font: #666666;
+
+.btn {
+    box-sizing: border-box;
+    appearance: none;
+    background-color: transparent;
+    border: 2px solid $blue;
+    border-radius: 0.6em;
+    color: $blue;
+    cursor: pointer;
+    display: flex;
+    align-self: center;
+    font-size: 1rem;
+    line-height: 1;
+    margin: 10px;
+    margin-right: 0px;
+    margin-left: 0px;
+    padding: 1em 1em;
+    text-decoration: none;
+    text-align: center;
+    text-transform: uppercase;
+    font-weight: 700;
+
+    &:hover,
+    &:active,
+    &:focus {
+        &:not([disabled]) {
+            color: $white;
+            outline: 0;
+        }
+    }
+
+    &[disabled] {
+        border: 1px solid $gray-border;
+        background-color: $gray-background;
+        color: $gray-font;
+        cursor: not-allowed;
+
+        &:hover,
+        &:focus {
+            border: 1px solid $gray-border;
+            background-color: $gray-background;
+            color: $gray-font;
+        }
+    }
+
+    &.generate {
+        transition: box-shadow 100ms ease-in-out, color 100ms ease-in-out;
+
+        &:hover {
+            &:not([disabled]) {
+                box-shadow: 0 0 40px 40px $blue inset;
+            }
+        }
+    }
+}

@@ -1,0 +1,50 @@
+const https = require('https');
+
+const isValid = (value) => {
+  return value !== "" || value !== '-' || value !== 'N/A';
+};
+
+const scanObject = (obj) => {
+  const newObj = Object.keys(obj).reduce((object, key) => {
+  if (isValid(obj[key])) {
+    object[key] = obj[key];
+  }
+  return object;
+}, {});
+return newObj;
+};
+
+https.get('https://coderbyte.com/api/challenges/json/json-cleaning', (resp) => {
+
+  let data = '';
+
+  // parse json data here...
+
+  resp.on('data', chunk => {
+    data += chunk;
+  });
+
+  resp.on('end', () => {
+    const parsed = JSON.parse(data);
+    const objen = Object.entries(parsed);
+    const newObj = {};
+    for (const [key, value] of objen) {
+      if (typeof value === 'object' && value !== null) {
+        newObj[key] = scanObject(value);
+      }
+      else if (Array.isArray(value)) {
+        newObj[key] = value.filter(k => isValid(k));
+      }
+      else if (isValid(value)) {
+        newObj[key] = value;
+      }
+    }
+    console.log(newObj);
+    //console.log(JSON.stringify(newObj));
+  });
+
+  resp.on('error', error => {
+    process.stdout.write(error);
+  });
+
+});

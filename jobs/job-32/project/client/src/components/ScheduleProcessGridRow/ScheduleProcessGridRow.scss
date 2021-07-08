@@ -1,0 +1,77 @@
+$table-header-email: #3c9dff;
+$table-header-border: #1565c0;
+$table-border: #d9d9d9;
+$row-bg: #ffffff;
+
+.flex-table {
+    display: flex;
+    width: 100%;
+    border-left: solid 1px $table-border;
+
+    &.header {
+        border-top: solid 1px $table-header-border;
+        border-left: solid 1px $table-header-border;
+        color: #ffffff;
+        border-color: $table-header-border;
+        background: $table-header-email;
+        text-align: center;
+    }
+
+    &.row:nth-child(odd) .flex-row {
+        background: $row-bg;
+    }
+
+    .flex-row {
+        display: flex;
+        flex: 0 0 auto;
+        justify-items: center;
+        align-items: center;
+        padding: .2em .2em;
+        border-right: solid 1px $table-border;
+        border-bottom: solid 1px $table-border;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        text-align: left;
+
+        &.field-0 {
+            // Timestamp.
+            width: 12%;
+        }
+
+        &.field-1 {
+            // Recipients count.
+            width: 5%;
+        }
+
+        &.field-2 {
+            // Email body Id.
+            width: 20%;
+        }
+
+        &.field-3 {
+            // Timezone.
+            width: 20%;
+        }
+
+        &.field-4 {
+            // Days in week.
+            width: 17.1%;
+        }
+
+        &.field-5 {
+            // Time in day.
+            width: 5%;
+        }
+
+        &.field-6,
+        &.field-7 {
+            // Success count.
+            width: 8%;
+        }
+
+        &.field-8 {
+            width: 5%;
+        }
+    }
+}

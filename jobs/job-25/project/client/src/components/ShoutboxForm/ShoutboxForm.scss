@@ -1,0 +1,50 @@
+.comments-form {
+    ul {
+        list-style: none;
+        margin-left: -40px;
+
+        li {
+
+            input,
+            textarea {
+                width: 100%;
+                margin-bottom: 15px;
+            }
+
+            input[type='submit'] {
+                width: 30%;
+                border: 0;
+                padding: 7px 16px;
+                background: #448ef6;
+                color: #ffffff;
+                font-weight: bold;
+                font-size: 0.9em;
+                text-transform: uppercase;
+                cursor: pointer;
+
+                &:disabled,
+                &[disabled] {
+                    border: 1px solid #999999;
+                    background-color: #cccccc;
+                    color: #666666;
+                }
+            }
+
+            input[type='text'],
+            textarea {
+                padding: 10px;
+                border: 0;
+                background: #f7f7f7;
+
+                &:focus {
+                    background: #ffffff;
+                }
+            }
+
+            textarea {
+                height: 80px;
+                resize: none;
+            }
+        }
+    }
+}

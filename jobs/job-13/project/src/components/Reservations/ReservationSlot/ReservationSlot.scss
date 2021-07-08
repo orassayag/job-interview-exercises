@@ -1,0 +1,65 @@
+@import '../../../assert/scss/global.scss';
+
+.reservations-slots-head,
+.reservations-slots-row {
+    .slot-box {
+        background-color: $primary-background-color;
+        width: 45px;
+        height: 100%;
+        border-right: 1px solid $gray-color;
+        background-clip: content-box;
+        font-size: .7em;
+        line-height: 3;
+
+        &.long {
+            border-image: linear-gradient(to top, $gray-color 30%, rgba(0, 0, 0, 0) 30%);
+            border-image-slice: 1;
+        }
+
+        &.short {
+            border-image: linear-gradient(to top, $gray-color 20%, rgba(0, 0, 0, 0) 20%);
+            border-image-slice: 1;
+        }
+
+        &.last {
+            border-right: 0px;
+        }
+
+        .label {
+            position: relative;
+            background-color: $primary-background-color;
+            left: 27px;
+            height: 0px;
+            width: 0px;
+        }
+    }
+}
+
+.reservations-slots-row {
+    .slot-box {
+        background-color: $white-color;
+
+        &.long {
+            border-image: linear-gradient(to top, $gray-color 100%, rgba(0, 0, 0, 0) 100%);
+            border-image-slice: 1;
+
+            &.fill {
+                background-color: $blue-background-color;
+                border: 1px $blue-background-color solid;
+                border-left: 0px;
+                border-top: 0px;
+                border-bottom: 0px;
+            }
+        }
+
+        &.short,
+        &.last {
+            border-right: 0px;
+
+            &.fill {
+                background-color: $blue-background-color;
+                border-right: 0px;
+            }
+        }
+    }
+}

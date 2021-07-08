@@ -1,0 +1,26 @@
+@import '../../../assert/scss/global.scss';
+
+.reservations-panel {
+    padding: 20px;
+    width: 90%;
+    min-height: 400px;
+    margin-bottom: 32px;
+    border: 1px $reservations-border-color solid;
+
+    .reservations-header {
+        display: flex;
+        flex-direction: row;
+
+        .date-title {
+            flex: 1 1;
+            color: $black-color;
+        }
+
+        .add-reservations-button {
+            flex: 1 2;
+            align-items: flex-start;
+            justify-content: right;
+            text-align: right;
+        }
+    }
+}

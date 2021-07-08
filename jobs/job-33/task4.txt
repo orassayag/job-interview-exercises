@@ -1,0 +1,9 @@
+var foo = "dog";
+consolg.log(foo);
+
+setTimeOut(function() {
+    foo = "cat";
+    console.log(foo);
+}, 1000);
+
+console.log(foo);

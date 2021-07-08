@@ -1,0 +1,49 @@
+<style>
+body {
+  font-family: "Helvetica Neue", Helvetica, sans-serif;
+}
+</style>
+
+<h1>Welcome to SyncFiddle</h1>
+<p>Collaborate your HTML, CSS and JavaScript code with multiple users.</p>
+<p>You can share code online with instant real-time SyncFiddle code editor.</p>
+<p>Let push <strong>Run</strong> button to render HTML/CSS and execute script.</p>
+
+<script>
+// You can use the console window at the bottom
+var h1 = document.querySelector('h1');
+console.log(h1.textContent);
+  
+  
+/*
+	pascal(6);
+  
+      1
+     1 1
+    1 2 1
+   1 3 3 1
+  1 4 6 4  1
+ 1 5 10 10  5 1
+1 6 15 20 15 6 1
+
+
+*/
+function pascal(n) {
+  const triangle = [];
+	for(let i = 0; i < n; i++)
+  {
+    triangle[i] = [];
+    triangle[i][0] = 1;
+    for(let y = 1; y < i; y++)
+    {
+      triangle[i][y] = triangle[i-1][y-1] + triangle[i-1][y]
+    }
+    triangle[i][i] = 1;
+  }
+  return triangle;
+  
+}
+  
+console.log(pascal(6));
+
+</script>

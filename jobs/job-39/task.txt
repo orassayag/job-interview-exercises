@@ -1,0 +1,20 @@
+const reverse = (string) => {
+	return string.split('').reverse().join('');
+};
+
+
+const reveseAstrycs = (string) => {
+	const results = [];
+	for(let i = string.length - 1; i >= 0; i--) {	
+		const first = string[i];
+		const last = string[string.length - 1];
+	}
+
+};
+
+
+input: a, *, c, d, e, f, g, h
+output: h, *, f, e, d, c, g, a
+
+input: a, u, c, d, *, f, g, h
+output: h, u, f, e, *, c, g, a

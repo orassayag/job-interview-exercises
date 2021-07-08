@@ -1,0 +1,71 @@
+.btc,
+.ltc,
+.eth {
+    width: 300px;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: minmax(50px, 60px) 1fr;
+    grid-template: "info""chart";
+    margin: 2em;
+    cursor: pointer;
+
+    .asset-info {
+        grid-area: info;
+        display: inline-flex;
+        justify-content: space-between;
+        align-items: center;
+        flex-direction: row;
+        padding-right: 20px;
+    }
+
+    .title {
+        display: flex;
+        padding-left: .7em;
+
+        .logo {
+            display: block;
+            text-indent: -9999px;
+            width: 40px;
+            height: 40px;
+            background-size: 40px 40px;
+            border: 0;
+            margin-right: .5em;
+
+            &.btc-logo {
+                background-image: url('../../assert/img/btc.svg');
+            }
+
+            &.eth-logo {
+                background-image: url('../../assert/img/eth.svg');
+            }
+
+            &.ltc-logo {
+                background-image: url('../../assert/img/ltc.svg');
+            }
+        }
+
+        h1, details.h2 {
+            line-height: .3;
+        }
+    }
+
+    .btcChart,
+    .ltcChart,
+    .ethChart {
+        grid-area: chart;
+        margin-top: auto;
+        width: 100%;
+    }
+}
+
+.btc {
+    box-shadow: 10px 10px 20px 1px rgba(247, 147, 26, .15);
+}
+
+.ltc {
+    box-shadow: 10px 10px 20px 1px rgba(46, 49, 72, .15);
+}
+
+.eth {
+    box-shadow: 10px 10px 20px 1px rgba(78, 56, 216, .15);
+}

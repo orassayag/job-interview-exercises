@@ -1,0 +1,106 @@
+https://codesandbox.io/u/shavit
+https://codesandbox.io/s/goofy-bush-dhntn?file=/src/index.js
+
+
+import "./styles.css";
+import axios from "axios";
+
+const showsArr = [
+  { name: "Dollhouse", type: "Scripted", id: 432 },
+  { name: "Under the Dome", type: "Scripted", id: 1 },
+  { name: "MasterChef", type: "Reality", id: 324 },
+  { name: "Avatar: The Last Airbende", type: "Animation", id: 555 }
+];
+
+const getReality = (showsArr) => {
+  return showsArr
+    .filter((t) => t.type === "Scripted")
+    .map((t) => t.name)
+    .join(" ");
+};
+
+const getMaxWords = (showsArr) => {};
+
+const getTVImage = async (showsArr) => {
+  const genres = showsArr.map((f) => f.id);
+  const images = [];
+  for (let i = 0; i < genres.length; i++) {
+    const { data } = await axios.get(
+      `http://api.tvmaze.com/shows/${genres[i]}`
+    );
+    if (data.genres.includes("Action")) {
+      images.push(data.image);
+    }
+  }
+  return images;
+};
+
+// 1. Print only the names of the tv shows from type 'Reality'
+// 2. Print the tv show name with the highest number words
+// 3. use the API endpoint for each tv show and print the image of the tv shows wchich belong to the Action genre
+//    http://api.tvmaze.com/shows/${tvshowID}
+
+(async () => {
+  const images = await getTVImage(showsArr);
+  document.getElementById("app").innerHTML = `
+<h1>Hello Small code test!</h1>
+<ol>
+  <li>${getReality(showsArr)}</li>
+  <li>${getMaxWords(showsArr)}</li>
+  <li>${images}</li> 
+</ol>
+`;
+})();
+
+
+//////////// START MODE
+
+
+import "./styles.css";
+import axios from "axios";
+
+const showsArr = [
+  { name: "Dollhouse", type: "Scripted", id: 432 },
+  { name: "Under the Dome", type: "Scripted", id: 1 },
+  { name: "MasterChef", type: "Reality", id: 324 },
+  { name: "Avatar: The Last Airbende", type: "Animation", id: 555 }
+];
+
+// 1. Print only the names of the tv shows from type 'Reality'
+// 2. Print the tv show name with the highest number words
+// 3. use the API endpoint for each tv show and print the image of the tv shows wchich belong to the Action genre
+//    http://api.tvmaze.com/shows/${tvshowID}
+
+document.getElementById("app").innerHTML = `
+<h1>Hello Small code test!</h1>
+<ol>
+  <li></li>
+  <li></li>
+  <li></li> 
+</ol>
+`;
+
+
+
+
+//// START MODE
+
+https://codesandbox.io/s/crjt8?file=/src/App.js:0-325
+
+import React, { useState, useEffect } from "react";
+import "./styles.css";
+
+export default function App() {
+  const [time, setTime] = useState(0);
+
+  useEffect(() => {
+    setInterval(() => setTime(time + 1), 1000);
+  }, []);
+
+  return (
+    <div className="App">
+      <h1>Timer</h1>
+      <h2>{time}</h2>
+    </div>
+  );
+}

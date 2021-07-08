@@ -1,0 +1,42 @@
+{
+  "name": "job-26",
+  "version": "1.0.0",
+  "private": false,
+  "description": "",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/orassayag/job-interview-exercises.git"
+  },
+  "keywords": [],
+  "license": "UNLICENSED",
+  "author": "Or Assayag <orassayag@gmail.com>",
+  "contributors": [
+    {
+      "name": "Or Assayag",
+      "email": "orassayag@gmail.com",
+      "url": "https://github.com/orassayag"
+    }
+  ],
+  "main": "src/index.js",
+  "files": [
+    "src",
+    ".eslintignore",
+    ".eslintrc",
+    "package-lock.json",
+    "package.json"
+  ],
+  "scripts": {
+    "start": "node src/index.js",
+    "stop": "taskkill -f -im node.exe"
+  },
+  "browserslist": [
+    ">0.2%",
+    "not dead",
+    "not ie <= 11",
+    "not op_mini all"
+  ],
+  "dependencies": {
+    "babel-eslint": "^10.1.0",
+    "eslint": "^7.27.0"
+  }
+}
