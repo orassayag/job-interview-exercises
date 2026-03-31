@@ -1,0 +1,17 @@
+.comments {
+    width: 500px;
+    max-width: 80%;
+    min-width: 300px;
+    background: #ffffff;
+    position: relative;
+    box-sizing: content-box;
+    padding: 18px 21px;;
+    background-color: lighten(#ffffff, 15%);;
+    box-shadow: 0 4px 4px rgba(0, 0, 0, 0.1);
+    color: #000000;
+
+    h2 {
+        font-size: 2.3em;
+        margin-bottom: 0;
+    }
+}

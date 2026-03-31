@@ -1,0 +1,23 @@
+.comment {
+    position: relative;
+    padding: 10px 20px;
+    background: #efefef;
+    margin-bottom: 5px;
+    cursor: default;
+
+    &:hover{
+        background: #d4e5fd;
+    }
+
+    .timestamp {
+        color: #777777;
+        position: absolute;
+        right: 20px;
+        top: 10px;
+    }
+
+    h4,
+    p {
+        margin: 0px;
+    }
+}

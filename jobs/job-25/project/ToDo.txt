@@ -1,0 +1,2 @@
+-Fix socket bug - move the useSocket to app component.
+-Take screenshots of the project (coins, shoutout, history).

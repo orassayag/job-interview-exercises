@@ -1,0 +1,91 @@
+@import '../../../assert/scss/global.scss';
+
+.devices-list-row {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    padding-top: 1em;
+    padding-bottom: 1em;
+
+    &.checked {
+        background-color: $primary-row-color;
+
+        .device-row {
+            background-color: $primary-row-color;
+        }
+    }
+
+    .device-row {
+        padding: 0px 5px;
+
+        &.device-row-check {
+            width: 30px;
+
+            input {
+                width: 30px;
+                cursor: pointer;
+                position: relative;
+                top: 1px;
+
+                &:disabled {
+                    cursor: default;
+                }
+            }
+        }
+
+        &.device-row-model {
+            width: 164px;
+        }
+
+        &.device-row-availability {
+            width: 100px;
+            font-weight: bold;
+
+            &.true {
+                color: $devices-list-available-color;
+            }
+
+            &.false {
+                color: $devices-list-in-use-color;
+            }
+        }
+
+        &.device-row-sound {
+            width: 55px;
+
+            .svg-inline--fa {
+                background-color: transparent;
+            }
+        }
+
+        &.device-row-os-version {
+            width: 105px;
+        }
+
+        &.device-row-device-id {
+            width: 140px;
+            overflow: hidden;
+            white-space: nowrap;
+            text-overflow: ellipsis;
+        }
+
+        &.device-row-location {
+            width: 103px;
+        }
+
+        &.device-row-mac-address {
+            width: 135px;
+        }
+
+        &.device-row-imei {
+            width: 81px;
+            overflow: hidden;
+            white-space: nowrap;
+            text-overflow: ellipsis;
+        }
+
+        &.device-row-imsi {
+            width: 100px;
+        }
+    }
+}

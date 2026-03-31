@@ -1,0 +1,27 @@
+@import '../../../assert/scss/global.scss';
+
+.button-container {
+    button {
+        width: 200px;
+        color: $white-color;
+        background-color: $blue-elements-color;
+        border: 1px $button-border-color solid;
+        outline: 0;
+        transition: .10s;
+        -webkit-transition: .10s;
+        padding: 7px;
+        font-size: 14px;
+        border-radius: 4px;
+        margin: 5px;
+        cursor: pointer;
+
+        .svg-inline--fa {
+            background-color: transparent;
+            color: $white-color;
+        }
+
+        &:hover {
+            background-color: $button-hover-color;
+        }
+    }
+}

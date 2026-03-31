@@ -1,0 +1,65 @@
+@import '../../../assert/scss/global.scss';
+
+.devices-list-header {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    padding-bottom: 10px;
+    padding-top: 10px;
+    background-color: $light-background-color;
+
+    .device-label {
+        background-color: $light-background-color;
+
+        &.device-label-check {
+            width: 34px;
+            padding: 0px 3px;
+
+            input {
+                width: 34px;
+                position: relative;
+                top: 1px;
+            }
+        }
+
+        &.device-label-model {
+            width: 164px;
+        }
+
+        &.device-label-availability {
+            width: 96px;
+        }
+
+        &.device-label-sound {
+            width: 47px;
+
+            .fa-volume-up {
+                background-color: $light-background-color;
+            }
+        }
+
+        &.device-label-os-version {
+            width: 104px;
+        }
+
+        &.device-label-device-id {
+            width: 134px;
+        }
+
+        &.device-label-location {
+            width: 97px;
+        }
+
+        &.device-label-mac-address {
+            width: 129px;
+        }
+
+        &.device-label-imei {
+            width: 100px;
+        }
+
+        &.device-label-imsi {
+            width: 100px;
+        }
+    }
+}

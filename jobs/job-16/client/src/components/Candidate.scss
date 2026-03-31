@@ -1,0 +1,50 @@
+.candidate {
+    width: 610px;
+    max-height: 300px;
+    margin: 16px;
+    border: 1px solid #cccccc;
+    background: #cccccc;
+    box-sizing: border-box;
+    padding: 20px;
+
+    .title {
+        width: 100%;
+        margin-bottom: 10px;
+        font-size: 1.5em;
+    }
+
+    .details {
+        width: 100%;
+        display: flex;
+        flex-direction: row;
+
+        .image {
+            background-image: url('https://www.w3schools.com/howto/img_avatar2.png');
+            background-repeat: no-repeat;
+            background-size: cover;
+            min-width: 150px;
+            min-height: 150px;
+            display: block;
+            margin-right: 10px;
+        }
+
+        .job-details {
+
+            .job {
+                width: 100%;
+                font-size: 1em;
+                margin-bottom: 10px;
+
+                .job-title {
+                    .label {
+                        font-weight: bold;
+                    }
+                }
+
+                .job-times {
+                    font-size: 0.8em;
+                }
+            }
+        }
+    }
+}

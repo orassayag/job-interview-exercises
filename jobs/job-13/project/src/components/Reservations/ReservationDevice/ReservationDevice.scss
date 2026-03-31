@@ -1,0 +1,27 @@
+@import '../../../assert/scss/global.scss';
+
+.reservations-devices-head,
+.reservations-devices-row {
+    height: 70px;
+    background-color: $primary-background-color;
+    border: 1px $primary-border-color solid;
+    border-bottom: 0px;
+    padding: 1em;
+    font-size: .8em;
+}
+
+.reservations-devices-head {
+    height: 40px;
+    border-bottom: 0px;
+    padding: .5em;
+    padding-left: 1em;
+}
+
+.reservations-devices-row {
+    background-color: $white-color;
+    padding-top: .7em;
+
+    &.last {
+        border-bottom: 1px $primary-border-color solid;
+    }
+}

@@ -1,0 +1,71 @@
+@import '../../../assert/scss/global.scss';
+
+.select {
+    position: relative;
+    display: flex;
+    width: 120px;
+    height: 30px;
+    line-height: 1.5;
+    background: $light-background-color;
+    overflow: hidden;
+    border-radius: .25em;
+    color: $black-color;
+    border: 1px $time-select-border solid;
+
+    &::after {
+        content: '\25BC';
+        position: absolute;
+        top: 0;
+        right: 0;
+        padding: .5em 1.2em;
+        background: $light-background-color;
+        cursor: pointer;
+        pointer-events: none;
+        -webkit-transition: .25s all ease;
+        -o-transition: .25s all ease;
+        transition: .25s all ease;
+        font-size: .7em;
+    }
+
+    &:hover {
+        &::after {
+            color: $time-select-arrow-hover-color;
+        }
+    }
+
+    select {
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        -ms-appearance: none;
+        appearance: none;
+        outline: 0;
+        box-shadow: none;
+        border: 0;
+        background: $light-background-color;
+        flex: 1;
+        padding: 0 .5em;
+        cursor: pointer;
+        color: $black-color;
+
+        option {
+            background: $light-background-color;
+        }
+
+        &::-ms-expand {
+            display: none;
+        }
+
+        &::-webkit-scrollbar,
+        &::-webkit-scrollbar-thumb {
+            width: 26px;
+            border-radius: 13px;
+            background-clip: padding-box;
+            border: 10px solid transparent;
+        }
+
+        &::-webkit-scrollbar-thumb {
+            box-shadow: inset 0 0 0 10px;
+            color: $time-select-scrollbar-color;
+        }
+    }
+}

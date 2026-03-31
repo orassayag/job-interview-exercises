@@ -1,0 +1,33 @@
+@import '../../../assert/scss/global.scss';
+
+.modal-content {
+    .devices-list-container {
+        width: 95%;
+        border: 1px $devices-container-border-color solid;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        margin-top: 25px;
+        margin-left: 25px;
+
+        .devices-list {
+            width: 100%;
+            height: 300px;
+            overflow-y: scroll;
+
+            &::-webkit-scrollbar,
+            &::-webkit-scrollbar-thumb {
+                width: 26px;
+                border-radius: 13px;
+                background-clip: padding-box;
+                border: 10px solid transparent;
+            }
+
+            &::-webkit-scrollbar-thumb {
+                box-shadow: inset 0 0 0 10px;
+                color: $devices-container-scrollbar-color;
+            }
+        }
+    }
+}

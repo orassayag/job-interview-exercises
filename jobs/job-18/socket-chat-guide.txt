@@ -1,0 +1,362 @@
+This website stores cookies on your computer. These cookies are used to improve your website experience and provide more personalized services to you, both on this website and through other media. To find out more about the cookies we use, see our Privacy Policy.
+We won't track your information when you visit our site. But in order to comply with your preferences, we'll have to use just one tiny cookie so that you're not asked to make this choice again.
+
+Accept Decline
+Crowdbotics Blog
+/
+Blog
+MARKETPLACE
+DISCUSS
+START BUILDING
+22 APRIL 2020
+/
+NODEJS
+Build a Chat App with Node.js and Socket.io
+
+Socket.io is a library that allows real-time, event-based communication in Node.js and browser-based applications. It uses the implementation of WebSockets protocol and offers some advantages over the protocol itself.
+
+If you're not familiar with WebSockets, WebSockets allows you to communicate between a client and a server in a nonstandard way. The traditional way that a client and a server communicate is by following the request-response cycle. With WebSockets, however, there is an open connection established between the server and the client. This open connection makes it possible for both of them to communicate instantly.
+
+Socket.io improves on WebSockets by including added features, such as broadcasting over a network or supporting connections established in the presence of proxies or load balancers. WebSocket does not support any of this.
+
+Without getting into many theoretical details as to what Socket.io can do, let us build a mini chat application to demonstrate its use-case. In this tutorial, you are going to do that using just Node.js and a static HTML web page.
+
+Table of Contents
+Requirements
+Setup an Express server
+Building the Chat UI
+Add Socket.io library
+Send messages from client to server
+Send messages to the server to all clients
+Add UI to display Chat Messages
+Conclusion
+Requirements
+There is only one major requirement that needs to be installed on your local dev environment:
+
+Node.js (>=10.x.x) with npm/yarn installed
+Setup an Express Server
+To get started, let's create an empty directory with some initial files (such as index.js) to bootstrap the server and package.json to initialize this directory as a Node project. Open a terminal window, and follow along:
+
+# create a new directory
+mkdir chat-node-socket
+
+# navigate inside this directory
+cd chat-node-socket
+
+# initialize with package.json
+npm init --yes
+
+# create an empty file
+touch index.js
+
+## install dependencies
+npm i -S express socket.io
+The last command is to install npm dependencies that are required to build this server and the app. Now, open index.js. In this file, let us bootstrap an Express server. Socket.io library expects a server initialized from the Node's core module (aka built-in) HTTP. So creating a server in this file is going to be a little bit unusual from the regular Express server file.
+
+const express = require('express')
+
+const app = express()
+const server = require('http').createServer(app)
+const port = process.env.PORT || 3000
+
+// just to test the server
+app.get('/', (req, res) => {
+  res.status(200).send('Working')
+})
+
+server.listen(port, () => {
+  console.log(`Server running on port: ${port}`)
+})
+The server.listen is used to bootstrap the server by passing a valid port. Generally, in an Express app, you'd find app.listen() instead of server.listen() but that is not the case in apps consuming Socket.io.
+
+Just to test it out, you can add a default route and using app.get() send a response with an appropriate message. Here is an example showing that the current server works.
+
+
+Building the Chat UI
+In this section, let us create a basic HTML structure of how the chat app is going to look. Of course, you can use any CSS styling library, but to keep things simple and stick to the goal of learning about Socket.io, a basic interface is going to be built using just HTML and CSS. Create a new directory called public and inside create a new file index.html. This file will serve the entry point for any user in the web browser.
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Chat app</title>
+  </head>
+  <body>
+    <div id="container">
+      <h1>
+        Nodejs + Socket Chat app
+      </h1>
+      <div id="chatSection">
+        <div class="chat-window"></div>
+        <form class="chat-form">
+          <label class="chat-label">
+            Enter a message:
+            <input type="text" class="chat-input" />
+          </label>
+          <input type="submit" class="chat-submit" value="enter" />
+        </form>
+      </div>
+    </div>
+
+    <script src="socket.io/socket.io.js"></script>
+    <script src="script.js"></script>
+  </body>
+</html>
+Start by defining a container that acts as the root level div element. Inside it, there is a header to signify the title of the application and the a chatSection element that contains the chat window, where the messages will appear and the input to enter and submit the chat message itself. Each of these elements have corresponding class names to style them using basic CSS.
+
+Here are some styles that you can add to the same index.html file in the head after the title.
+
+<style>
+  #container {
+    width: 700px;
+    margin: 0 auto;
+  }
+  .chat-input {
+    width: 300px;
+    height: 35px;
+    border: solid 1px #444;
+  }
+  .chat-submit {
+    width: 50px;
+    height: 35px;
+    border: solid 1px #444;
+  }
+  .chat-window {
+    height: 300px;
+    width: 400px;
+  }
+  #chatSection {
+    float: left;
+    border: 1px grey solid;
+    border-radius: 10px;
+    padding: 10px;
+  }
+</style>
+Lastly, add two scripts tags to this file. The first script tag will make sure that the client has access to the io object. This is how the server is going to know that a client is connected via the socket.
+
+<script src="socket.io/socket.io.js"></script>
+<script src="script.js"></script>
+Create file script.js in the public directory and add the following statement to it for now.
+
+const socket = io()
+Edit the route in index.js as below to see the web page in action.
+
+// import path among other dependencies
+
+const path = require('path')
+app.use(express.static(path.join(__dirname + '/public')))
+This uses express.static to serve the static file index.html. Now, go back to the terminal. If the server is running, restart it, and if not, just type node index.js.
+
+Note: You should definitely try nodemon in the development mode. It gracefully takes care of restarting the Node server and watches for file changes.
+Open a browser window and visit http://localhost:3000/.
+
+
+try our app estimate calculator CTA image
+
+Add Socket.io library
+In order to build the chat app, the Socket.io library has to be imported in index.js. After that, initialize the library in the Node server as follows.
+
+const express = require('express')
+const app = express()
+const server = require('http').createServer(app)
+const port = process.env.PORT || 3000
+const io = require('socket.io')(server)
+const path = require('path')
+
+app.use(express.static(path.join(__dirname + '/public')))
+
+io.on('connection', socket => {
+  console.log('Some client connected')
+})
+
+server.listen(port, () => {
+  console.log(`Server running on port: ${port}`)
+})
+The io object emits events and listens to events. In the above snippet, to connect to a socket, you are using io.on event listen and passing the socket as the argument to the callback function. Whenever a client connects to the chat app's server, it will run the message in the console.log() statement.
+
+Now, open the terminal window to run the script node index.js and then go to the browser window at the URL http:localhost:3000/. In the terminal window, you will see the following message appears.
+
+"Some client connected" message in node terminal
+Send messages from client to server
+You have already created a form to send messages from the client to the server using Socket.io. However, it will not work right now. To submit the form, you will have to make sure of two things:
+
+avoid a page reload
+read the message or the input value from the input field and send it using Socket.io
+To prevent a page reload, let us first add an event listener on the chat-form class. Then, using event.preventDefault(), you can avoid the page reload whenever the event triggers – that is, whenever a new message is sent in the chat window.
+
+Open script.js and add the following.
+
+const chat = document.querySelector('.chat-form')
+
+chat.addEventListener('submit', event => {
+  event.preventDefault()
+})
+Next, you will have to select chat-input to send the value of the input field or the chat message using sockets. Modify the same file as follows:
+
+const socket = io()
+
+const chat = document.querySelector('.chat-form')
+const Input = document.querySelector('.chat-input')
+
+chat.addEventListener(', event => {
+  event.preventDefault()
+  socket.emit('chat', Input.value)
+  Input.value = ''
+})
+The socket.emit() is the method responsible for sending data from the client. This function takes the name of the event (chat) as the first parameter and the associated value (the value of the input field) as the second parameter.
+
+Now, go to the server file index.js and using socket.on() you can listen to any message sent by the client. For this app, it is going to listen to the chat event listener created on the client-side. Modify the contents of io.on() as follows:
+
+io.on('connection', socket => {
+  // console.log('Some client connected')
+
+  socket.on('chat', message => {
+    console.log('From client: ', message)
+  })
+})
+Restart your server and go the browser window and send a new message. Check out the below to see it in action.
+
+Node receives the text input from the html page
+Send messages to the server to all clients
+In this section, let us add the functionality of broadcasting the message to the whole chat room. In other words, any user connected to the socket port at the current time is going to receive the message.
+
+To add this functionality, let's start with the server file index.js first. Open it and add io.emit() as below. This method emits an event to all connected clients.
+
+io.on('connection', socket => {
+  // console.log('Some client connected')
+
+  socket.on('chat', message => {
+    // console.log('From client: ', message)
+    io.emit('chat', message)
+  })
+})
+The client has to have a way to listen to all the events emitted by the server. To serve this, open public/script.js and add the following line after the definition of chat event listener.
+
+socket.on('chat', message => {
+  console.log('From server: ', message)
+})
+Make sure the server is running. Open two browser windows simultaneously, as shown below, and try to send a message from one window. You will notice that on sending the message from one window, at the same time it is being broadcasted to all open browser windows. In other words, all clients connected to the chat app server can see each message.
+
+Chat function demonstrated in side-by-side browser windows
+Add UI to display Chat Messages
+In this section, let's override and add a basic user interface to display the chat message on the client side rather than opening the Console tab from a browser's developer tools.
+
+Notice that in index.html, before the form to type a chat message, there is an empty div tag with class name chat-window.
+
+<div id="chatSection">
+  <div class="chat-window"></div>
+  <form class="chat-form"></form>
+</div>
+Using this class name, you are going to display all the chat messages. Open script.js and add a new method called renderMessage() after the existing event listener.
+
+const chatWindow = document.querySelector('.chat-window')
+
+const renderMessage = message => {
+  const div = document.createElement('div')
+  div.classList.add('render-message')
+  div.innerText = message
+  chatWindow.appendChild(div)
+}
+
+socket.on('chat', message => {
+  // make sure to modify this
+  renderMessage(message)
+})
+Now go back to the browser windows and try sending a message or two.
+
+The chat UI renders messages in real-time.
+Conclusion
+Congratulations! You have created a simple server and client application that mimics the functionality of a chat application using Node.js and Socket.io. To continue your learning, you can extend this application by adding features like usernames and chat rooms.
+
+You can find the complete code at this Github repo. For further reading, check out Socket.io's official documentation about using the library with Express framework here.
+
+Looking for a chat app that's ready-to-deploy right out of the box? Check out Crowdbotics' Messaging and Chat App Blueprint.
+
+Aman Mittal
+Aman Mittal
+Aman Mittal is a Computer Science engineer working as an independent fullstack developer. He specializes in web & mobile platforms working with technologies such as Node.js, ReactJS, and React Native.
+
+Read More
+Free Quote:
+Estimate cost and timeline for your custom app
+First name*
+Last name*
+Company name*
+Email*
+Employee Count*
+
+Please Select
+Job Title*
+Website URL*
+Country/Region*
+Tell us a little bit about the app you would like to build.
+Design Tool*Method or tool used for creating wireframe, prototype, UX, or visual designs.
+
+Please Select
+Design AttachmentWireframe, prototype, template, sketch, design file, screen diagram, etc. (optional)
+No file chosen
+Desired Start Date*
+What kind of project is this?*
+
+Please Select
+Phone number
+Target Project Budget*
+
+Please Select
+How did you first hear about Crowdbotics?*
+
+Please Select
+
+
+— Crowdbotics Blog —
+NodeJS
+Most Compatible Frontend and Backend Framework Pairings
+How to Manually Setup and Deploy The Crowdbotics Dating App Blueprint
+Visualize Google Sheets Data in a NodeJS App
+See all 20 posts →
+An In-Depth Guide to Using React Native Image Picker
+REACT NATIVE
+An In-Depth Guide to Using React Native Image Picker
+This tutorial explains how to implement the React Native community module react-native-image-picker, which enables your app to select an image from the user's camera or photo gallery.
+
+Aman Mittal
+Aman Mittal
+13 MIN READ
+How to Use Airtable as a Cloud-Based Database for a React App
+REACT
+How to Use Airtable as a Cloud-Based Database for a React App
+Learn how to store, access, and render your React app's data in the cloud using the Airtable API.
+
+Aman Mittal
+Aman Mittal
+14 MIN READ
+Crowdbotics Blog icon
+Crowdbotics Blog
+—
+Build a Chat App with Node.js and Socket.io
+Share this
+
+Crowdbotics Blog
+Crowdbotics is the fastest way to build, launch and scale an application.
+
+Developer? Try out the Crowdbotics App Builder to quickly scaffold and deploy apps with a variety of popular frameworks.
+
+Busy or non-technical? Join hundreds of happy teams building software with Crowdbotics PMs and expert developers. Scope timeline and cost with Crowdbotics Managed App Development for free.
+
+Connect with Crowdbotics to turn ideas and specs into working code.
+
+Start Building
+Crowdbotics Blog
+Built with  by (what else?) Crowdbotics
+
+About Built With Crowdbotics Documentation Discuss App Builder Managed App Development Privacy Policy Terms of Service Career Blog Marketplace
+
+
+
+
+VERIFIED PARTNER
+
+dialog featured image
+Using Figma for Design?
+Turn your Figma files into real code instantly with our Figma Import tool.
+
+Convert Figma to Code

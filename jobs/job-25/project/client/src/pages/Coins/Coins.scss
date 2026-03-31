@@ -1,0 +1,24 @@
+.coins-container {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    flex-wrap: nowrap;
+
+    .sources, .shout-box {
+        display: flex;
+        width: 100%;
+        justify-content: center;
+        align-items: center;
+        margin-top: 2em;
+    }
+
+    .coins {
+        width: 100%;
+        display: inline-flex;
+        flex-direction: row;
+        justify-content: center;
+        flex-wrap: wrap;
+        padding-top: 30px;
+        padding-bottom: 30px;
+    }
+}
